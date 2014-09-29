@@ -1,0 +1,168 @@
+Dear Ram,
+
+See my below answers.
+
+Best,
+Xing
+
+On Thu, May 30, 2013 at 11:05 AM, Ram Ramanathan <ramanath@bbn.com> wrote:
+Xing,
+
+This works, thanks!
+
+The file name indicated below each message is of the form "IPSN<a>=<b>". Does this image correspond to image number <b> under the images folder in the gz file you sent yesterday? Irrespective of what <a> is? I checked for a couple images and it seemed so, but I wanted to confirm.
+
+IPSN<a> is the name of the phone, you can see IPSN1 and IPSN2, which
+indicates we use 2 phones for demo. <b> is the image id for that
+phone. You can view it as, IPSN<a>=<b> means that this image is the
+<b>-th image of phone IPSN<a>.
+
+This <b> is not correspond to image number. But the query results is
+generated from the dataset I provided, basically you can find any
+query image from the dataset.
+
+
+My answer to this question is, for most of the query types, the user
+(who search image) can specify a number N, that is the number of
+images this query need. So the bytes need to upload is N*image_size,
+image_size you can view it as constant.
+
+From the paper it appears that you may return less than N if you can't satisfy it all, especialy the concurrent queries, which is why you have the algorithm to figure out which ones to retrieve? Did I get that right? Were the IPSN queries all done sequentially?
+
+Yes, that's exactly why we need credit assignment/uploading algorithm.
+For IPSN demo, the queries you saw are the complete result (though it
+can be incomplete in case the uploading is slow).
+
+
+How many phones were used for this demo?
+2, IPSN1 and IPSN2.
+
+best.
+
+-Ram
+
+On May 30, 2013, at 10:39 AM, Xing Xu <xingx@enl.usc.edu> wrote:
+
+Dear Ram,
+
+In my understanding, you need the uploading size for each query? i.e.,
+how many bytes phones need to upload to answer one query?
+
+My answer to this question is, for most of the query types, the user
+(who search image) can specify a number N, that is the number of
+images this query need. So the bytes need to upload is N*image_size,
+image_size you can view it as constant.
+
+However, N has different meaning for different query types, for example:
+for Top-K query, N is K, means that the user want N most similar
+images, to the target image;
+for Cluster Representative query, N means that, we group all the
+images into N clusters, and for each cluster, we select 1
+representative to upload --> N images to upload.
+
+I've packed some query results, which I used for IPSN demo. It
+contains 3 Top-K queries and 3 Cluster Representative queries:
+http://nsl.cs.usc.edu/~xingx/query_result.tar.gz
+For Top-K query, you can see a target image, followed by uploaded
+images (results);
+For Cluster Representative query, what you see is the cluster
+representatives, so 4 images means N=4.
+
+If you have any other questions, please let me know.
+
+Best,
+Xing
+
+
+
+On Thu, May 30, 2013 at 10:24 AM, Ram Ramanathan <ramanath@bbn.com> wrote:
+Ramesh, Xing,
+
+I wasn't clear enough, sorry! Let me try again.
+
+In the Mediascope paper, you report that you tried a few queries on images stored on smartphones. In response to those queries,  Mediascope identified which images need to be retrieved.
+
+What I need is, for each query the size of the images retrieved for that query. In fact all I need is the average size, but if there is a list of sizes obviously I can get what I want. Or if you even say the image id's I can get the sizes from the directory.
+
+In other words, I sort of need the output of the experiment, but you don't need to run it again, just what is already collected for the paper.
+
+You didn't have to report which images you retrieved (only the credit), but I thought you would have the data on which images were retrieved in order to compute credit. But if not, then we can talk about other data that might be equivalent.
+
+Hope it is clearer!
+
+Thanks very much.
+
+-Ram
+
+P.S. To give Xing some background, I actually don't know how Mediascope/Medusa implementation etc. works, but I have read the paper. I am trying to use the data from your experiments as input into another effort.
+
+
+
+
+On May 30, 2013, at 8:09 AM, Ramesh Govindan <ramesh@usc.edu> wrote:
+
+Ram,
+
+Perhaps I misunderstood your original request. To reiterate what Xing says, I think what he has provided you with are the images and the queries we used in the experiment. To run the experiment in the setting we used, we'd need to set up the Mediascope server and phones; happy to do this if need be, but I thought you simply wanted the data we used for the experiment.
+
+Regards.
+
+On Wednesday, May 29, 2013, Ram Ramanathan wrote:
+Xing, Ramesh,
+
+Thanks very much for putting these together.
+
+Is there something else I need to do not in the readme.txt? I get the following when I run the command
+
+dhcp89-073-023:~/Desktop/images_and_exp/experiment 73% ls
+4_query         6_queries       6_s_v_l_full    experiment_2.py
+5_queries       6_s_v_l         6_same_deadline readme.txt
+dhcp89-073-023:~/Desktop/images_and_exp/experiment 74% python experiment_2.py 4_query
+Traceback (most recent call last):
+File "experiment_2.py", line 11, in <module>
+  log_file = open("../log/experiment" + str(datetime.datetime.utcfromtimestamp(int(time.time() - 7*3600))), "w")
+IOError: [Errno 2] No such file or directory: '../log/experiment2013-05-29 14:38:23'
+dhcp89-073-023:~/Desktop/images_and_exp/experiment 75%
+
+thanks,
+
+-Ram
+
+On May 29, 2013, at 11:29 AM, Ramesh Govindan <ramesh@usc.edu> wrote:
+
+Ram,
+
+Xing has packed up a sample set of query images and queries (these are slightly different from the ones in the paper, sorry we didn't save those). I expect we can also generate more queries/images if you need it, so just let us know.
+
+Regards.
+
+---------- Forwarded message ----------
+From: Xing Xu
+Date: Tuesday, May 28, 2013
+Subject: Mediascope data set
+To: Ramesh Govindan <ramesh@usc.edu>
+
+
+The query images (of IPSN demo) and experiment scripts, is available
+at: http://nsl.cs.usc.edu/~xingx/images_and_exp.tar.gz
+
+I add simple instruction for experiment codes (assume they know
+MediaScope/Medusa). Please let them contact me for further
+instruction/explanation.
+
+Best,
+Xing
+
+
+
+
+--
+-- Ramesh
+
+
+
+
+--
+-- Ramesh
+
+

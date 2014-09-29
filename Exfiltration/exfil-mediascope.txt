@@ -1,0 +1,54 @@
+Imagine you have a large sensor network where the sensors can do
+relaying but the network itself is unreachable. To exfiltrate the
+data, an UAV flies by over the field. The UAV (running the MediaScope
+MSCloud) carries the queries, gets the feature vectors from the
+sensors (more on this below), and determines which sensed data to
+upload (just as in MediaScope). In order to avoid detection and being
+power constrained, the UAV can only hang around for a very limited
+time. This results in a timeliness constraint very similar to the one
+in MediaScope.
+
+The key difference between the smartphone civilian scenario and this
+is that the sensor network is a MANET.  Further, since the sensors are
+power constrained, only a few sensors may be able to reach the UAV at
+a time, but this set changes over time. However, sensors multi-hop
+their packets to the sensor connecting to the UAV. Thus the notion of
+"upload" capacity is much more complicated to estimate here -- it
+depends on the topology, link data rate, MAC protocol, routing
+overhead etc.
+
+And this is precisely where Symptotics can help. In simplest terms, we
+have figured out for several types of MANETs and traffic patterns, a
+closed form equation like:
+
+f( linkRate, topology, protocols, trafficRatePerNode… ) = 0
+
+trafficRate is roughly dataPerNode/timeliness, where loadPerNode =
+some function g(queries, algorithm (e.g. spanner), accuracy).
+
+So, given all but one of the parameters, we can solve for the
+other. For example, if timeliness (how long the UAV can hover) is
+given, we can figure out the average data that can possibly be
+exfiltrated per node, which can then be used as part of the
+heuristic. Or, we can say that we will process every single query
+(dataPerNode given) but determine how long the UAV should hover
+(compute timeliness).  I would have to extend my model for this, but
+this is precisely what the "framework" was built for.
+
+In the MediaScope paper, you talk about feature vectors uploaded
+apriori. This is obviously not possible. But it is fairly
+straightforward for the UAV to transmit a "I am here, send me your
+feature vectors" flooded to the network and get back the feature
+vectors (multi-hopped). Once it collects the vectors, it can execute
+the algorithms just like in the paper. Or, one could run a distributed
+computation of your K-cluster and spanner algorithms!!
+
+There are a few other variations (e.g. it could be soldiers with
+smartphones taking pictures, or multiple coordinating UAVs) and issues
+here, but to keep the email from becoming too long let me stop
+here. Let me know what you think. If it seems to make sense, and you
+and your student(s) are interested, we can explore this further in the
+context of NS-CTA (I think the Army would appreciate the military
+application of QoI in sensor exfiltration). The main near-term work
+would be mine, to extend the symptotics model, so for now I am just
+looking for feedback, advice, critique, other angles etc. from you.
