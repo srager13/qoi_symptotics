@@ -8,6 +8,14 @@ As an example scenario, we choose a mobile network in which nodes generate photo
 
 Qualities like lightness, contrast, and color are all inherent to a photograph, and many techniques have been studied to compare photographs.  We use one such technique called Color and Edge Directivity Descriptor (CEDD) \cite{2008cedd}.  Using the CEDD vector of each image, we can compare any two images.  To achieve a scalar representation of similarity, from comparing two vectors, we use \emph{Tanimoto similarity} \cite{tanimoto}, $T_s$.  Naturally, to describe the dissimilarity, or distance, of two photographs, then, we simply use $T_d = 1 - T_s$.
 
+\subsection{Scenarios}
+
+Here, we will provide two example scenarios to motivate the algorithms used and results generated in this work.  First, imagine a scenario in which you have one photo of an important event, like a criminal entering a building.  If there are devices in the area also generating images, we would like to collect more images that can provide more information and context.  For example, more pictures of the criminal entering the building might give a better idea of whether the criminal was accompanied by others or give a higher likelihood of finding the criminal's identity using facial recognition.  
+
+Even if we have location and time stamps of photos in the area, collecting all of the photographs taken in the correct place in a particular time period may be inefficient or even impossible depending on the network's capabilities. Additionally, even two cameras at almost the exact same location can take two photographs that are facing in opposite directions, leading to completely different content.  Therefore, being able to find and acquire those photographs that have content most like the initial image will allow users to quickly obtain high quality information for the given context.
+
+The second scenario would be one in which the goal is to provide surveillance of as much of an area as possible.  In this case, photographs of different content are desired to create as complete of a view of the information in all available images.  
+
 \subsection{Image Selection Algorithms}
 
 With the Tanimoto similarities and distances between all of the images, a chosen algorithm can be applied to select images to provide a desired level of quality of information.  We present two such possibilities here along with examples and scenarios.

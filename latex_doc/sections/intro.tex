@@ -5,3 +5,14 @@
 Here we will introduce the topic (and possibly include related works?).
 
 %we could start by saying photonet considers similartiy-based image collection(diversity metric), and mediascope considers different queries and timeliness, but the transmission rates were not detailed. here, we consider an actual network etc.
+
+Similarity-based image collection has previously been considered [PN,MS]. In [PN], authors cosider a DTN network where the objective is to collect the most diverse set of ictures at every node. Authors consider a picure prioritization and dropping mechanism in order to maximize the diversity, defined by dissimilarities of the collection of pictures. However, it does not consider attributes of timeliness, nor the consideration of transmission rates and network topology. [MS] has also considered a smartphone application where different queries are defined as top-K, spanner, and K-means clustering based on image similarity metrics. While timeliness is also considered as an objective, the effect of rates and network topology is overlooked.
+
+QoI based scheduling has been considered from various angles. Start with event detection Bisdikian, Charbiwala etc, then OICC, Time varying queued, credibility-aware, QoI outage, Freshness-based for multiple sensors. Also DCOSS work (coverage).
+
+
+In this work, we consider the practical effects of real networks as protocol overhead, contention, rates in conjunction with similarity based timely image collection. We adopt the symptotic scalabilty framework[], which has been previously applied to content-agnostic static networks[] and mobile networks[].
+
+Our results first provides maximum sizes that the networks can scale, given requested levels of QoI. The QoI depends on timeliness and one of either completeness, or diversity. These attributes are defined by sum similarity of collected images resulting from Top-K queries for completeness, and sum dissimilarity of images collected using the greedy spanner algorithm. We observe that the network scalability considerably reduces with higher completeness and diversity requests, as well as stringent timeliness requirements. 
+
+Finally, we identify the trade-off such that a given QoI requirement results in both a minumum required network size, and a maximum feasible network size. We identify the region of QoI requests where the former does not exceed the latter, hence the QoI request can be satisfied. 

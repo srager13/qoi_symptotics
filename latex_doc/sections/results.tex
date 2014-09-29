@@ -3,21 +3,69 @@
 
 Figures \ref{fig:topkScalR} and \ref{fig:spanScalR} are some example figures that we can use to show the feasible scalability when considering QoI.
 
-\begin{figure} 
+
+
+\begin{figure}
+    \includegraphics[scale=0.35]{figures/topk_uni.pdf}
+    \caption{Sum Similarity vs. Scalability vs. Timeliness, Unicast Traffic}
+    \label{fig:3dplot1}
+\end{figure}
+
+
+\begin{figure}
+    \includegraphics[scale=0.35]{figures/topk_fld.pdf}
+    \caption{Sum Similarity vs. Scalability vs. Timeliness, Flooding}
+    \label{fig:3dplot2}
+\end{figure}
+
+
+\begin{figure}
+    \includegraphics[scale=0.35]{figures/span_uni.pdf}
+    \caption{Sum Dissimilarity vs. Scalability vs. Timeliness, Unicast Traffic}
+    \label{fig:3dplot3}
+\end{figure}
+
+
+\begin{figure}
+    \includegraphics[scale=0.35]{figures/span_fld.pdf}
+    \caption{Sum Dissimilarity vs. Scalability vs. Timeliness, Flooding}
+    \label{fig:3dplot4}
+\end{figure}
+
+Clearly, there is a remarkable difference in the scalability depending upon
+the QoI.%, and hence QoE desired.
+That QoI makes a difference is not suprising, but the {\em magnitude} of
+difference is surprising, along with the fact that there are some critical
+thresholding points. Our preliminary work shows that
+scalability analysis with QoI awareness has the potential to
+open up new tradeoff points with
+significant potential benefits in scalability. For instance, it can
+potentially indicate when it makes sense to reduce QoI a bit and possibly
+gain significantly in scalability (e.g. from QoI=(10,5) to QoI=(10,10) in Figure
+\ref{fig:scal-log}) and when such reductions will only give a marginal
+increase in scalability
+(e.g. from QoI=(3,40) to QoI=(3,45) in Figure \ref{fig:3dplot1}).
+
+
+
+\subsection{Scalably Feasible QoI Regions}
+For the special case where each node possesses one image, we have observed the following dilemma. To achieve a certain level of desired QoI \text{q}, which can be defined as $(C,T)$ for Top-K queries and $(D,T)$ for spanner queries, the completeness/diversity attribute necessitates a number $K_{req}(q)$ images to be collected. When each node can contribute with at most one picture, this implies a minimum network size of $K_{req}(q)$ that is necessary for the QoI level. On the other hand, the same QoI pair also results in a maximum network size $S(q)$ from the scalability framework.
+When $S(q)<K_{req}(q)$, it is not possible to provide QoI level \text{q}. Hence, we state that the QoI level \text{q} is infeasible, or \emph{scalably infeasible}.
+
+This phenomenon defines the concept of \emph{scalably feasible QoI regions}, which define the set of QoI pairs that can be supported, given a given traffic structure. This region is given by a set of (completeness, timeliness) pairs for Top-K, and (diversity, timeliness) pairs for spanner queries. 
+We demonstrate the scalably-feasible QoI regions in Figures \ref{fig:topkScalR}-\ref{fig:spanScalR}.
+
+
+\begin{figure}
     \includegraphics[scale=0.35]{figures/topkScalR.pdf}
     \caption{Feasible Scalability Region of Top-K Algorithm}
     \label{fig:topkScalR}
 \end{figure}
 
-\begin{figure} 
+\begin{figure}
     \includegraphics[scale=0.35]{figures/spanScalR.pdf}
     \caption{Feasible Scalability Region of Spanner Algorithm}
     \label{fig:spanScalR}
 \end{figure}
 
-
-\begin{figure} 
-    \includegraphics[scale=0.35]{figures/topk_fld.pdf}
-    \caption{Sum Similarity vs. Scalability vs. Timeliness}
-    \label{fig:3dplot1}
-\end{figure}
+As expected, the feasible QoI region is smaller for flooding compared with unicast. Moreover, these regions clearly demonstrate the tradeoff between the completeness/diversity that can be obtained and the timeliness that can be tolerated. 

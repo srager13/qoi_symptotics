@@ -6,4 +6,10 @@ Savvas~A Chatzichristofis and Yiannis~S Boutalis.
   image indexing and retrieval.
 \newblock In {\em Computer Vision Systems}, pages 312--322. Springer, 2008.
 
+\bibitem{tanimoto}
+TT~Tanimoto.
+\newblock An elementary mathematical theory of classification and prediction.
+  1958.
+\newblock {\em International Business Machines Corporation}.
+
 \end{thebibliography}
