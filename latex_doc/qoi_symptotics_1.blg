@@ -3,48 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: qoi_symptotics_1.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "Ramanathan10"
-Warning--I didn't find a database entry for "Silv83"
-Warning--empty year in tanimoto
-You've used 2 entries,
+You've used 20 entries,
             1791 wiz_defined-function locations,
-            460 strings with 3910 characters,
-and the built_in function-call counts, 523 in all, are:
-= -- 51
-> -- 12
-< -- 1
-+ -- 5
-- -- 3
-* -- 25
-:= -- 79
-add.period$ -- 7
-call.type$ -- 2
-change.case$ -- 2
+            571 strings with 8155 characters,
+and the built_in function-call counts, 6475 in all, are:
+= -- 585
+> -- 300
+< -- 12
++ -- 107
+- -- 87
+* -- 419
+:= -- 938
+add.period$ -- 68
+call.type$ -- 20
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 30
-empty$ -- 53
-format.name$ -- 3
-if$ -- 123
+cite$ -- 20
+duplicate$ -- 320
+empty$ -- 620
+format.name$ -- 87
+if$ -- 1536
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 2
-newline$ -- 13
-num.names$ -- 2
-pop$ -- 10
+int.to.str$ -- 20
+missing$ -- 20
+newline$ -- 103
+num.names$ -- 20
+pop$ -- 93
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 18
+skip$ -- 188
 stack$ -- 0
-substring$ -- 32
-swap$ -- 11
-text.length$ -- 1
+substring$ -- 439
+swap$ -- 130
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 5
-width$ -- 3
-write$ -- 23
-(There were 3 warnings)
+warning$ -- 0
+while$ -- 60
+width$ -- 22
+write$ -- 228

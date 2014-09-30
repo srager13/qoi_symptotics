@@ -76,6 +76,8 @@
 % can use linebreaks \\ within to get better formatting as desired
 \title{QoI Symptotics}
 
+\IEEEoverridecommandlockouts
+
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
@@ -104,7 +106,7 @@
 %Email: johnh@artistech.com}
 %}
 
-%\author{%
+%\author{
 %  \IEEEauthorblockN{Scott T. Rager\IEEEauthorrefmark{1} \quad Ertugrul N. Ciftcioglu\IEEEauthorrefmark{1} \quad
 %    \quad Thomas F. La Porta\IEEEauthorrefmark{1} \\ Alice Leung\IEEEauthorrefmark{2} \quad William Dron\IEEEauthorrefmark{2} \quad John Hancock\IEEEauthorrefmark{3} \\
 %  }
@@ -113,11 +115,9 @@
 %  \IEEEauthorrefmark{2}Raytheon BBN Technologies, Cambridge, MA 02138\\
 %  \IEEEauthorrefmark{3}Artistech, Inc., Fairfax, VA 22030
 %  }
-
+%
 %  Email:  str5004@psu.edu, enc118@psu.edu, tlp@cse.psu.edu, aleung@bbn.com, wdron@bbn.com, johnh@artistech.com
-%\thanks{Research was sponsored by the U.S. Army Research Laboratory
-%under the Network Science Collaborative Technology Alliance,
-%Agreement Number W911NF-09-2-0053.} }
+%\thanks{Research was sponsored by the U.S. Army Research Laboratory under the Network Science Collaborative Technology Alliance, Agreement Number W911NF-09-2-0053.} }
 
 
 % for over three affiliations, or if they all won't fit within the width
@@ -150,10 +150,22 @@
 \maketitle
 
 
-%\begin{abstract}
-%\boldmath
-%The abstract goes here.
-%\end{abstract}
+\begin{abstract}
+\boldmath
+%area
+The areas of practical network scalability, known as \emph{symptotics}, and Quality of Information (QoI) aware network control protocols have both been previously studied, but no work has characterized the effect that
+%problem
+In any practical implementation, knowing the limitations on scalability, the capabilities of deliverable QoI, and the impact of both design choices as well as timeliness and QoI requirements are crucial to designing an operational, effective network.
+%solution
+To quickly find and understand these characteristics of practical scalability, we apply add QoI awareness to the symptotics framework.
+%methodology
+We use two similarity-based image retrieval algorithms to motivate and exemplify the relationship between timely QoI requirements and network scalability.
+%results
+Results show the large impact on scalability of high QoI and strict timeliness requirements and the \emph{scalably feasible QoI regions} of an example class of networks.
+%takeaway
+
+\end{abstract}
+
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
 % if the conference you are submitting to favors bold math in the abstract,
@@ -184,9 +196,11 @@
 
 \input{sections/intro}
 
-\input{sections/symptotics_bckgrnd}
+\input{sections/related_work}
 
-\input{sections/qoi_examples}
+\input{sections/qoi_model}
+
+\input{sections/symptotics_bckgrnd}
 
 \input{sections/qoi_scalability}
 

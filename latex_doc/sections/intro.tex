@@ -2,17 +2,18 @@
 \section{Introduction}
 \label{sec:intro}
 
-Here we will introduce the topic (and possibly include related works?).
+%area
+Symptotic analysis is an emerging field of characterizing practical network scalability instead of the common asymptotic analysis.  Introduced in \cite{scalability_manets_theory_vs_practice}, symptotics is extremely useful for applications and network designers that are interested in determining the limits of a specific network implementation as well as how various factors affect these limits in terms of scalability.  For example, if one is designing an emergency mesh network to quickly install to replace destroyed infrastructure after a natural disaster, understanding the traffic limitations or what topology allows for the largest feasible network size is crucial to successful design.
 
-%we could start by saying photonet considers similartiy-based image collection(diversity metric), and mediascope considers different queries and timeliness, but the transmission rates were not detailed. here, we consider an actual network etc.
+%problem
+%why not solved
+While including the consideration of Quality of Information (QoI) into network control protocols or analysis is not novel, its limitations and effects on network scalability have not been considered before.  This consideration is extremely important, though, because in many recent fields of study, QoI is being used as the metric of a network's capabilities.  Increasingly, network nodes are becoming more capable of affecting QoI through data fusion, compression, selection, etc.  This work aims to begin understanding the connections between these actions and practical network scalability.
 
-Similarity-based image collection has previously been considered [PN,MS]. In [PN], authors cosider a DTN network where the objective is to collect the most diverse set of ictures at every node. Authors consider a picure prioritization and dropping mechanism in order to maximize the diversity, defined by dissimilarities of the collection of pictures. However, it does not consider attributes of timeliness, nor the consideration of transmission rates and network topology. [MS] has also considered a smartphone application where different queries are defined as top-K, spanner, and K-means clustering based on image similarity metrics. While timeliness is also considered as an objective, the effect of rates and network topology is overlooked.
+%insight
+Specifically, in this work we consider the practical effects of real networks as protocol overhead, contention, rates in conjunction with QoI.  While adopting a general framework for QoI, we use timely, similarity-based image collection to provide motivation and concrete applications with results.  
 
-QoI based scheduling has been considered from various angles. Start with event detection Bisdikian, Charbiwala etc, then OICC, Time varying queued, credibility-aware, QoI outage, Freshness-based for multiple sensors. Also DCOSS work (coverage).
+%contribution
+Our results first provide maximum sizes to which the networks can scale, given requested levels of QoI. The QoI depends on timeliness and one of two metrics considered: completeness or diversity.  These attributes are defined by the sum similarity of collected images resulting from Top-K queries for completeness, and sum dissimilarity of images collected using the greedy spanner algorithm. These definitions will be explained in more detail in Section \ref{sec:qoi_model}.  We observe that the network scalability considerably reduces with higher completeness and diversity requests, as well as with stringent timeliness requirements.  
 
+Finally, we identify the trade-off of a given QoI requirement resulting in both a minimum required network size to provide a required number of images and the maximum feasible network size able to support that amount of necessary traffic.  We identify the region of QoI requests where the former does not exceed the latter, and, hence, the QoI request can be satisfied. 
 
-In this work, we consider the practical effects of real networks as protocol overhead, contention, rates in conjunction with similarity based timely image collection. We adopt the symptotic scalabilty framework[], which has been previously applied to content-agnostic static networks[] and mobile networks[].
-
-Our results first provides maximum sizes that the networks can scale, given requested levels of QoI. The QoI depends on timeliness and one of either completeness, or diversity. These attributes are defined by sum similarity of collected images resulting from Top-K queries for completeness, and sum dissimilarity of images collected using the greedy spanner algorithm. We observe that the network scalability considerably reduces with higher completeness and diversity requests, as well as stringent timeliness requirements. 
-
-Finally, we identify the trade-off such that a given QoI requirement results in both a minumum required network size, and a maximum feasible network size. We identify the region of QoI requests where the former does not exceed the latter, hence the QoI request can be satisfied. 
