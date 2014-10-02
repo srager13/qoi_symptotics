@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  30 SEP 2014 17:53
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  2 OCT 2014 11:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -676,96 +676,110 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 167.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-(./sections/intro.tex) (./sections/related_work.tex) (./sections/qoi_model.tex
-[1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+(./sections/intro.tex
+
+LaTeX Warning: Reference `see:qoi_model' on page 1 undefined on input line 13.
+
+) (./sections/related_work.tex [1{/usr/local/texlive/2012/texmf-var/fonts/map/p
+dftex/updmap/pdftex.map}
 
 
-]
-<figures/topkSumSimilarity.pdf, id=9, 444.66125pt x 330.23375pt>
+]) (./sections/qoi_model.tex [2]
+<figures/topkSumSimilarity.pdf, id=18, 444.66125pt x 330.23375pt>
 File: figures/topkSumSimilarity.pdf Graphic file (type pdf)
 
 <use figures/topkSumSimilarity.pdf>
-Package pdftex.def Info: figures/topkSumSimilarity.pdf used on input line 46.
+Package pdftex.def Info: figures/topkSumSimilarity.pdf used on input line 42.
 (pdftex.def)             Requested size: 200.0957pt x 148.6038pt.
 
-<figures/spannerCumulativeDist.pdf, id=10, 508.33582pt x 429.19548pt>
+<figures/spannerCumulativeDist.pdf, id=19, 508.33582pt x 429.19548pt>
 File: figures/spannerCumulativeDist.pdf Graphic file (type pdf)
 
 <use figures/spannerCumulativeDist.pdf>
 Package pdftex.def Info: figures/spannerCumulativeDist.pdf used on input line 5
-5.
+1.
 (pdftex.def)             Requested size: 177.9202pt x 150.22066pt.
-) (./sections/symptotics_bckgrnd.tex)
-(./sections/qoi_scalability.tex [2 <./figures/topkSumSimilarity.pdf>]
+) (./sections/qoi_scalability.tex
+Package epstopdf Info: Source file: <figures/residual.eps>
+(epstopdf)                    date: 2014-10-01 10:07:06
+(epstopdf)                    size: 8469275 bytes
+(epstopdf)             Output file: <figures/residual-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-10-01 10:09:08
+(epstopdf)                    size: 1671225 bytes
+(epstopdf)             Command: <repstopdf --outfile=figures/residual-eps-conve
+rted-to.pdf figures/residual.eps>
+(epstopdf)             \includegraphics on input line 52.
+Package epstopdf Info: Output file is already uptodate.
 
-LaTeX Warning: Reference `resf' on page 3 undefined on input line 39.
+<figures/residual-eps-converted-to.pdf, id=20, 365.365pt x 122.4575pt>
+File: figures/residual-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figures/residual-eps-converted-to.pdf>
+Package pdftex.def Info: figures/residual-eps-converted-to.pdf used on input li
+ne 52.
+(pdftex.def)             Requested size: 219.22069pt x 73.47505pt.
+ [3 <./figures/topkSumSimilarity.pdf> <./figures/spannerCumulativeDist.pdf> <./
+figures/residual-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `fig:comb1' on page 4 undefined on input line 97.
 
 
-LaTeX Warning: Reference `fig:comb1' on page 3 undefined on input line 98.
+LaTeX Warning: Reference `fig:comb1' on page 4 undefined on input line 104.
 
-
-LaTeX Warning: Reference `fig:comb1' on page 3 undefined on input line 105.
-
-[3 <./figures/spannerCumulativeDist.pdf>]) (./sections/results.tex
-<figures/topk_uni.pdf, id=63, 614.295pt x 794.97pt>
+) (./sections/results.tex
+<figures/topk_uni.pdf, id=63, 509.99292pt x 513.11952pt>
 File: figures/topk_uni.pdf Graphic file (type pdf)
- <use figures/topk_uni.pdf>
-Package pdftex.def Info: figures/topk_uni.pdf used on input line 9.
-(pdftex.def)             Requested size: 215.00647pt x 278.24367pt.
 
-<figures/topk_fld.pdf, id=64, 614.295pt x 794.97pt>
+<use figures/topk_uni.pdf>
+Package pdftex.def Info: figures/topk_uni.pdf used on input line 28.
+(pdftex.def)             Requested size: 178.50018pt x 179.59451pt.
+
+<figures/topk_fld.pdf, id=64, 512.01744pt x 480.1961pt>
 File: figures/topk_fld.pdf Graphic file (type pdf)
- <use figures/topk_fld.pdf>
-Package pdftex.def Info: figures/topk_fld.pdf used on input line 16.
-(pdftex.def)             Requested size: 215.00647pt x 278.24367pt.
 
-<figures/span_uni.pdf, id=65, 614.295pt x 794.97pt>
+<use figures/topk_fld.pdf>
+Package pdftex.def Info: figures/topk_fld.pdf used on input line 33.
+(pdftex.def)             Requested size: 179.20879pt x 168.07114pt.
+
+<figures/span_uni.pdf, id=65, 511.99399pt x 424.46912pt>
 File: figures/span_uni.pdf Graphic file (type pdf)
- <use figures/span_uni.pdf>
-Package pdftex.def Info: figures/span_uni.pdf used on input line 23.
-(pdftex.def)             Requested size: 215.00647pt x 278.24367pt.
 
-<figures/span_fld.pdf, id=66, 614.295pt x 794.97pt>
+<use figures/span_uni.pdf>
+Package pdftex.def Info: figures/span_uni.pdf used on input line 44.
+(pdftex.def)             Requested size: 179.20058pt x 148.5664pt.
+
+<figures/span_fld.pdf, id=66, 510.70425pt x 418.0152pt>
 File: figures/span_fld.pdf Graphic file (type pdf)
- <use figures/span_fld.pdf>
-Package pdftex.def Info: figures/span_fld.pdf used on input line 30.
-(pdftex.def)             Requested size: 215.00647pt x 278.24367pt.
+
+<use figures/span_fld.pdf>
+Package pdftex.def Info: figures/span_fld.pdf used on input line 49.
+(pdftex.def)             Requested size: 178.74916pt x 146.30751pt.
 
 
-LaTeX Warning: Reference `fig:scal-log' on page 4 undefined on input line 45.
+LaTeX Warning: Reference `fig:scal-log' on page 4 undefined on input line 63.
 
-[4 <./figures/topk_uni.pdf> <./figures/topk_fld.pdf
-
-pdfTeX warning: /usr/texbin/pdflatex (file ./figures/topk_fld.pdf): PDF inclusi
-on: multiple pdfs with page group included in a single page
-> <./figures/span_uni.pdf
-
-pdfTeX warning: /usr/texbin/pdflatex (file ./figures/span_uni.pdf): PDF inclusi
-on: multiple pdfs with page group included in a single page
->] <figures/topkScalR.pdf, id=142, 695.59875pt x 423.08063pt>
+[4 <./figures/topk_uni.pdf> <./figures/topk_fld.pdf>]
+<figures/topkScalR.pdf, id=173, 695.59875pt x 423.08063pt>
 File: figures/topkScalR.pdf Graphic file (type pdf)
 
 <use figures/topkScalR.pdf>
-Package pdftex.def Info: figures/topkScalR.pdf used on input line 60.
+Package pdftex.def Info: figures/topkScalR.pdf used on input line 78.
 (pdftex.def)             Requested size: 243.46321pt x 148.08043pt.
 
-<figures/spanScalR.pdf, id=143, 796.9775pt x 597.23125pt>
+<figures/spanScalR.pdf, id=174, 796.9775pt x 597.23125pt>
 File: figures/spanScalR.pdf Graphic file (type pdf)
 
 <use figures/spanScalR.pdf>
-Package pdftex.def Info: figures/spanScalR.pdf used on input line 66.
+Package pdftex.def Info: figures/spanScalR.pdf used on input line 84.
 (pdftex.def)             Requested size: 278.94629pt x 209.03406pt.
 
-Overfull \hbox (26.94629pt too wide) in paragraph at lines 66--67
+Overfull \hbox (26.94629pt too wide) in paragraph at lines 84--85
 [][] 
  []
 
-) (./sections/conclusion.tex) (./qoi_symptotics_1.bbl [5 <./figures/span_fld.pd
-f> <./figures/topkScalR.pdf> <./figures/spanScalR.pdf
-
-pdfTeX warning: /usr/texbin/pdflatex (file ./figures/spanScalR.pdf): PDF inclus
-ion: multiple pdfs with page group included in a single page
->])
+) (./sections/conclusion.tex) (./qoi_symptotics_1.bbl [5 <./figures/span_uni.pd
+f> <./figures/span_fld.pdf> <./figures/topkScalR.pdf> <./figures/spanScalR.pdf>
+])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -783,15 +797,12 @@ Before submitting the final camera ready copy, remember to:
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 9196 strings out of 493488
- 148556 string characters out of 3141326
- 198982 words of memory out of 3000000
- 12303 multiletter control sequences out of 15000+200000
+ 9202 strings out of 493488
+ 148697 string characters out of 3141326
+ 199032 words of memory out of 3000000
+ 12310 multiletter control sequences out of 15000+200000
  43182 words of font info for 91 fonts, out of 3000000 for 9000
  958 hyphenation exceptions out of 8191
  38i,9n,33p,1760b,307s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -810,10 +821,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2012/texmf
 s/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on qoi_symptotics_1.pdf (6 pages, 2152095 bytes).
+Output written on qoi_symptotics_1.pdf (6 pages, 4265985 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 343 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,41 +1,59 @@
+
 \section{Results}
 \label{sec:results}
 
 In Figures \ref{fig:3dplot1} to \ref{fig:3dplot4}, we demonstrate network scalability as a function of QoI requirements for different traffic properties in a mesh setting.
 
 
+%\begin{figure}
+%\centering
+%  \subfigure[Average Coverage vs. Energy Budget]{
+%    \includegraphics[scale=0.35]{figures/mds_mobile/vary_power_budget/initBattery_7000/IR_3_nodes_5/send_size_2200_cov_size_135/perc_cov_vs_pow_budg.pdf}
+%    \label{fig:avg_cov_vary_pow_budg}
+%    }
+%    \subfigure[Average Energy vs. Energy Budget]{
+%    \includegraphics[scale=0.35]{figures/mds_mobile/vary_power_budget/initBattery_7000/IR_3_nodes_5/send_size_2200_cov_size_135/avg_pow_vs_pow_budg.pdf}
+%    \label{fig:avg_pow_vary_pow_budg}
+%    }
+%\caption{Performance for Varying Energy Budget.}
+%\label{fig:vary_pow_budg_all_algs}
+%\end{figure}
 
 \begin{figure}
-    \includegraphics[scale=0.35]{figures/topk_uni.pdf}
-    \caption{Sum Similarity vs. Scalability vs. Timeliness, Unicast Traffic}
-    \label{fig:3dplot1}
+\centering
+    
+    \subfigure[Unicast Traffic]{
+        \includegraphics[scale=0.35]{figures/topk_uni.pdf}
+        \label{fig:3dplot1}
+        }
+
+    \subfigure[Flooding]{
+        \includegraphics[scale=0.35]{figures/topk_fld.pdf}
+        \label{fig:3dplot2}
+        }
+
+   \caption{Top-K:  Sum Similarity vs. Scalability vs. Timeliness}
 \end{figure}
 
 
 \begin{figure}
-    \includegraphics[scale=0.35]{figures/topk_fld.pdf}
-    \caption{Sum Similarity vs. Scalability vs. Timeliness, Flooding}
-    \label{fig:3dplot2}
-\end{figure}
-
-
-\begin{figure}
+\centering
+    \subfigure[Unicast Traffic]{
     \includegraphics[scale=0.35]{figures/span_uni.pdf}
-    \caption{Sum Dissimilarity vs. Scalability vs. Timeliness, Unicast Traffic}
     \label{fig:3dplot3}
-\end{figure}
+    }
 
-
-\begin{figure}
+    \subfigure[Flooding]{
     \includegraphics[scale=0.35]{figures/span_fld.pdf}
-    \caption{Sum Dissimilarity vs. Scalability vs. Timeliness, Flooding}
     \label{fig:3dplot4}
+    }
+   \caption{Spanner:  Sum Dissimilarity vs. Scalability vs. Timeliness}
 \end{figure}
 
 Clearly, there is a remarkable difference in the scalability depending upon
-the QoI.%, and hence QoE desired.
- That QoI makes a difference is not suprising, but the {\em magnitude} of
-difference is surprising, along with the fact that there are some critical
+the QoI. %, and hence QoE desired.
+The fact that QoI makes a difference is not surprising, but the {\em magnitude} of the
+impact is surprising, along with the fact that there are some critical
 thresholding points. Our preliminary work shows that
 scalability analysis with QoI awareness has the potential to
 open up new tradeoff points with

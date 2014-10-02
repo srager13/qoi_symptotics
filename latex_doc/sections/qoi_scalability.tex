@@ -7,7 +7,7 @@ is typically a highly
 non-linear function of the number of packets delivered at the
 destination.  \emph{For example, an image recognition application will
 perform nearly the same for a range of compression ratios, suddenly
-experiencing a spike at some particular ratio.} Given this, simply
+experiencing a spike at some particular ratio.} Given this behavior, simply
 delivering the highest possible rate is not necessarily the best
 option from a user QoI viewpoint. More generally, we would like to know
 the capacity of a network (and relatedly, the scalability achievable)
@@ -31,13 +31,13 @@ expression was derived there:
 
 \begin{equation}
 %\res = \avail - \Psi - \sum_j (1+\gamma_j)\cdot \usedJ   \label{eq:res}
-res = avail - \sum_j (1+\gamma_j)D^j,
+R(m) = W(m) - \sum_j (1+\gamma_j)D^j(m),
 \label{eq:res}
 \end{equation}
-where \emph{res} is the {\em residual capacity} at a given node, indicating
+where $R(m)$ is the {\em residual capacity} at a given node $m$, indicating
 the capacity remaining at a node after taking into account the load
 from all traffic sources from all nodes (Fig. \ref{resf}). This is the difference
-between the {\em available capacity} %\avail  and the capacity $D^j$
+between the {\em available capacity} $W(m)$  and the capacity $D^j(m)$
 demanded by
 each source $j$ (control overhead is regarded as one kind of
 source), where $\gamma_j$ in the equation is the {\em contention factor} that is a rough inverse
@@ -47,14 +47,13 @@ We refer the reader to \cite{scalability_manets_theory_vs_practice} for details 
 and derivation of Equation (\ref{eq:res}), and focus here on adapting the
 formulation to accommodate QoI.
 
-%\begin{figure}
-%\label{resf}
-%    \includegraphics[scale=0.35]{figures/residual.eps}
-%    \caption{Residual Capacities, Mesh Scenario}
-%    \label{fig:3dplot1}
-%\end{figure}
-
-
+\begin{figure}
+\begin{centering}
+    \includegraphics[scale=0.6]{figures/residual.eps}
+    \caption{Residual Capacities, Mesh Scenario}
+    \label{resf}
+\end{centering}
+\end{figure}
 
 Suppose that a network has $M$ types of flows. Each flow $j$ has its own
 QoI-rate function $QRF_j(u_j)$ where $u_j$ is one of the possible QoI
@@ -69,14 +68,14 @@ is instantiated in the context of the particular network.
 With these, the demanded capacity from flow $j$ is
 
 \begin{equation}
-D_j = \xi(QRF_j(u_j)),
+D^j = \xi(QRF_j(u_j)),
 \end{equation}
 where $u_j$ is the desired QoI of the application using flow $j$.
 
 Combining with Equation (\ref{eq:res}), we have:
 
 \begin{equation}
-res = avail - \sum_j (1+\gamma_j)\xi(QRF_j(u_j))   \label{eq:utility}.
+R(m) = W(m) - \sum_j (1+\gamma_j(m))\xi(QRF_j(u_j)(m))   \label{eq:utility}.
 \end{equation}
 
 We are given application QoI requirements, and QRF can be obtained by
@@ -84,7 +83,7 @@ empirical studies or given as part of the application profile.
 $\xi$ needs to be calculated on a case by case basis
 given the topology and the traffic profile.
 
-For instance, given a top-K query with QoI demand $\textbf{q}=(C,T)$, we first determine the number $K_{req}$ to provide completeness $C$ from \emph{graph sumsim}. This results in a load in bits using the nominal image size $B$ as $K_{req}*B$. Next, we obtain the required rate by $r_{req}\geq \frac{K_{req}B}{T}$. The QRF function for the spanner is also found similarly, where QoI demand $\textbf{q}=(D,T)$ relates the requested diversity $D$ to the number of images, hence traffic requirement.
+For instance, given a top-K query with QoI demand $\textbf{q}=(C,T)$, we first determine the number $K_{req}$ to provide completeness $C$ from \emph{graph sumsim}. This results in a load in bits of $K_{req}*B$ where $B$ is the nominal image size.  Next, we obtain the required rate, which is $r_{req}\geq \frac{K_{req}B}{T}$. The QRF function for the spanner is also found similarly, where QoI demand $\textbf{q}=(D,T)$ relates the requested diversity $D$ to the number of images, hence traffic requirement.
 
 
 We illustrate the relationship between QoI and scalability using a
@@ -105,12 +104,12 @@ $QRF(q)$ = $f^{-1}(q)$ where $f$ is the function represented by Figure
 \ref{fig:comb1} that maps rates to achievable QoI.
 
 Since the source and destination are chosen randomly, the scope of a flow is
-the average path length. In \cite{Silv83}, the average path length for a
+the average path length. In~\cite{Silv83}, the average path length for a
 regular mesh of $N$ nodes is shown to be
 $\frac{2}{3}\cdot \sqrt{N}$. Thus, the used capacity per node
 in an $N$ node network each node generating $x$ bps
-is $\xi(x) = \frac{2}{3}\cdot \sqrt{N}\cdot
-x$ approximately.
+is approximately $\xi(x) = \frac{2}{3}\cdot \sqrt{N}\cdot
+x$.
 
 Finally, the contention factor for unicast traffic in a mesh network
 is $\gamma_1 = 7$ since the receiver
@@ -130,14 +129,14 @@ assume the overhead due to MAC control messages is negligible.
 %\end{figure}
 
 Substituting  in Equation (\ref{eq:utility}), and noting that maximum
-scalability is when %\res = 0, we have
+scalability is when \emph{R(m) = 0} for the node $m$ at which $R(m)$ reaches zero first, also called the \emph{bottleneck node}.  Assuming this node $m$ and dropping the per-node notation on $R$ and $W$, resulting in the maximum node capacity of
 $
-A = (1+7)\cdot \frac{2}{3}\cdot  \sqrt{N}\cdot  f^{-1}(q),
+W = (1+7)\cdot \frac{2}{3}\cdot  \sqrt{N}\cdot  f^{-1}(q),
 $
-which simplifies to
+which simplifies to a maximum network size of
 
 \begin{equation}
-N = [\frac{3\cdot A}{16\cdot f^{-1}(q)}]^2.
+N = [\frac{3\cdot W}{16\cdot f^{-1}(q)}]^2.
 \end{equation}
 
 We note that given the coarseness of the model and the abstraction of many
@@ -187,10 +186,3 @@ such an approximate upper bound suffices.
 %shows the same data on a logarithmic scale.
 
 
-
-
-Put the symptotics scalability equations here, including the scaling factor of the QoI function, and then include discussion.
-
-\begin{equation}
-	\eta W = \sum_{j} ( 1 + \gamma_j) \xi (Q) ( 1 + T_j )
-\end{equation}
