@@ -2,22 +2,7 @@
 \section{Results}
 \label{sec:results}
 
-In Figures \ref{fig:3dplot1} to \ref{fig:3dplot4}, we demonstrate network scalability as a function of QoI requirements for different traffic properties in a mesh setting.
-
-
-%\begin{figure}
-%\centering
-%  \subfigure[Average Coverage vs. Energy Budget]{
-%    \includegraphics[scale=0.35]{figures/mds_mobile/vary_power_budget/initBattery_7000/IR_3_nodes_5/send_size_2200_cov_size_135/perc_cov_vs_pow_budg.pdf}
-%    \label{fig:avg_cov_vary_pow_budg}
-%    }
-%    \subfigure[Average Energy vs. Energy Budget]{
-%    \includegraphics[scale=0.35]{figures/mds_mobile/vary_power_budget/initBattery_7000/IR_3_nodes_5/send_size_2200_cov_size_135/avg_pow_vs_pow_budg.pdf}
-%    \label{fig:avg_pow_vary_pow_budg}
-%    }
-%\caption{Performance for Varying Energy Budget.}
-%\label{fig:vary_pow_budg_all_algs}
-%\end{figure}
+In Figures \ref{fig:3dplots12} and \ref{fig:3dplots34}, we demonstrate network scalability as a function of QoI requirements for different traffic properties in a mesh setting.
 
 \begin{figure}
 \centering
@@ -33,6 +18,7 @@ In Figures \ref{fig:3dplot1} to \ref{fig:3dplot4}, we demonstrate network scalab
         }
 
    \caption{Top-K:  Sum Similarity vs. Scalability vs. Timeliness}
+   \label{fig:3dplots12}
 \end{figure}
 
 
@@ -48,10 +34,11 @@ In Figures \ref{fig:3dplot1} to \ref{fig:3dplot4}, we demonstrate network scalab
     \label{fig:3dplot4}
     }
    \caption{Spanner:  Sum Dissimilarity vs. Scalability vs. Timeliness}
+      \label{fig:3dplots34}
 \end{figure}
 
 Clearly, there is a remarkable difference in the scalability depending upon
-the QoI. %, and hence QoE desired.
+the QoI. 
 The fact that QoI makes a difference is not surprising, but the {\em magnitude} of the
 impact is surprising, along with the fact that there are some critical
 thresholding points. Our preliminary work shows that
@@ -59,10 +46,12 @@ scalability analysis with QoI awareness has the potential to
 open up new tradeoff points with
 significant potential benefits in scalability. For instance, it can
 potentially indicate when it makes sense to reduce QoI a bit and possibly
-gain significantly in scalability (e.g. from QoI=(10,5) to QoI=(10,10) in Figure
-\ref{fig:scal-log}) and when such reductions will only give a marginal
+gain significantly in scalability (e.g. increasing timeliness constraints for small Sum Similarity/Dissimilarity values)
+ %(e.g. from QoI=(10,5) to QoI=(10,10) in Figure    % These specific example points need fixed
+%\ref{fig:scal-log}) 
+and when such reductions will only give a marginal
 increase in scalability
-(e.g. from QoI=(3,40) to QoI=(3,45) in Figure \ref{fig:3dplot1}).
+(e.g. increasing timeliness for high values of Sum Similarity/Dissimilarity).
 
 
 

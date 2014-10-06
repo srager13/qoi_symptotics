@@ -5,15 +5,13 @@
 As discussed in the previous sections, QoI %-- and consequently QoE --
 is typically a highly
 non-linear function of the number of packets delivered at the
-destination.  \emph{For example, an image recognition application will
-perform nearly the same for a range of compression ratios, suddenly
-experiencing a spike at some particular ratio.} Given this behavior, simply
+destination. Given this behavior, simply
 delivering the highest possible rate is not necessarily the best
 option from a user QoI viewpoint. More generally, we would like to know
 the capacity of a network (and relatedly, the scalability achievable)
 if we wanted {\em not} the maximum {\em throughput} (as traditional
 asymptotic analyses targets), but the maximum {\em QoI}. In other
-words, given a certain QoI(e.g. completeness/diversity-timeliness pair) that is desired by the  user of a network,
+words, given a certain QoI (e.g. completeness/diversity-timeliness pair) that is desired by the  user of a network,
 what is the the number of nodes that the network can scale to?\emph{ And how
 sensitive is the scalability to the QoI that is desired?}
 
@@ -40,7 +38,7 @@ from all traffic sources from all nodes (Fig. \ref{resf}). This is the differenc
 between the {\em available capacity} $W(m)$  and the capacity $D^j(m)$
 demanded by
 each source $j$ (control overhead is regarded as one kind of
-source), where $\gamma_j$ in the equation is the {\em contention factor} that is a rough inverse
+source), where $\gamma_j$ in the equation is the {\em contention factor}, which is a rough inverse
 measure of the spatial reuse, and indicates the number of  nodes that have
 to defer on a transmission.
 We refer the reader to \cite{scalability_manets_theory_vs_practice} for details on the contention factor
@@ -83,8 +81,9 @@ empirical studies or given as part of the application profile.
 $\xi$ needs to be calculated on a case by case basis
 given the topology and the traffic profile.
 
-For instance, given a top-K query with QoI demand $\textbf{q}=(C,T)$, we first determine the number $K_{req}$ to provide completeness $C$ from \emph{graph sumsim}. This results in a load in bits of $K_{req}*B$ where $B$ is the nominal image size.  Next, we obtain the required rate, which is $r_{req}\geq \frac{K_{req}B}{T}$. The QRF function for the spanner is also found similarly, where QoI demand $\textbf{q}=(D,T)$ relates the requested diversity $D$ to the number of images, hence traffic requirement.
+For instance, given a Top-K query with QoI demand $\textbf{q}=(C,T)$, we first determine the number $K_{req}$ to provide completeness $C$ from \emph{graph sumsim}. This results in a load in bits of $K_{req}*B$ where $B$ is the nominal image size.  Next, we obtain the required rate, which is $r_{req}\geq \frac{K_{req}B}{T}$. The QRF function for the spanner is also found similarly, where QoI demand $\textbf{q}=(D,T)$ relates the requested diversity $D$ to the number of images, again also defining the traffic requirement when timeliness requirements are considered.
 
+%\subsection{Illustrative Example}  % should this be a separate subsection??
 
 We illustrate the relationship between QoI and scalability using a
  specific example.  Consider a
@@ -93,15 +92,12 @@ A continuous stream of traffic sent from each node to another node chosen
 uniformly at random.\footnote{This is not
 intended to model any particular operational scenario, only an
 example to illustrate our model in a simple manner.}  Suppose
-further that we use the multi-application scenario given in Figure
-\ref{fig:comb1}, and that we
-require a particular application QoI (score) $q$.  How
+further that we run the queries and request a specific  QoI level $\mathbf{q}$.  How
 many nodes can the network support (i.e., what is the upper bound on
-$N$) as a function of $q$?
+$N$) as a function of $\mathbf{q}$?
 
-To determine this, we apply Equation (\ref{eq:utility}) to the scenario.
-$QRF(q)$ = $f^{-1}(q)$ where $f$ is the function represented by Figure
-\ref{fig:comb1} that maps rates to achievable QoI.
+To determine this, we apply Equation (\ref{eq:utility}) to the scenario, with
+$QRF(q)$  determined using the number of pictures required for the first QoI attribute, image size and timeliness.
 
 Since the source and destination are chosen randomly, the scope of a flow is
 the average path length. In~\cite{Silv83}, the average path length for a
@@ -128,10 +124,10 @@ assume the overhead due to MAC control messages is negligible.
 % \label{fig:unicast-contention}
 %\end{figure}
 
-Substituting  in Equation (\ref{eq:utility}), and noting that maximum
-scalability is when \emph{R(m) = 0} for the node $m$ at which $R(m)$ reaches zero first, also called the \emph{bottleneck node}.  Assuming this node $m$ and dropping the per-node notation on $R$ and $W$, resulting in the maximum node capacity of
+We can then substitute these expressions  into Equation (\ref{eq:utility}) and note that the maximum
+scalability occurs when \emph{R(m) = 0} for the node $m$ at which $R(m)$ reaches zero first, also called the \emph{bottleneck node}.  Assuming this node $m$ and dropping the per-node notation on $R$ and $W$, resulting in the maximum node capacity of
 $
-W = (1+7)\cdot \frac{2}{3}\cdot  \sqrt{N}\cdot  f^{-1}(q),
+W = (1+7)\cdot \frac{2}{3}\cdot  \sqrt{N}\cdot  f^{-1}(q),  %  What is f^{-1}????
 $
 which simplifies to a maximum network size of
 
