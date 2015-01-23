@@ -10,7 +10,7 @@ delivering the highest possible rate is not necessarily the best
 option from a user QoI viewpoint. More generally, we would like to know
 the capacity of a network (and relatedly, the scalability achievable)
 if we wanted {\em not} the maximum {\em throughput} (as traditional
-asymptotic analyses targets), but the maximum {\em QoI}. In other
+asymptotic analyses targets), but instead desire to satisfy {\em QoI requirements}. In other
 words, given a certain QoI (e.g. completeness/diversity-timeliness pair) that is desired by the  user of a network,
 what is the the number of nodes that the network can scale to?\emph{ And how
 sensitive is the scalability to the QoI that is desired?}
@@ -81,7 +81,7 @@ empirical studies or given as part of the application profile.
 $\xi$ needs to be calculated on a case by case basis
 given the topology and the traffic profile.
 
-For instance, given a Top-K query with QoI demand $\textbf{q}=(C,T)$, we first determine the number $K_{req}$ to provide completeness $C$ from \emph{graph sumsim}. This results in a load in bits of $K_{req}*B$ where $B$ is the nominal image size.  Next, we obtain the required rate, which is $r_{req}\geq \frac{K_{req}B}{T}$. The QRF function for the spanner is also found similarly, where QoI demand $\textbf{q}=(D,T)$ relates the requested diversity $D$ to the number of images, again also defining the traffic requirement when timeliness requirements are considered.
+For instance, given a Top-K query with QoI demand $\textbf{q}=(C,T)$, we first determine the number $K_{req}$ to provide completeness $C$ from Figure \ref{fig:topkSumSim}. This results in a load in bits of $K_{req}*B$ where $B$ is the nominal image size.  Next, we obtain the required rate, which is $r_{req}\geq \frac{K_{req}B}{T}$. The QRF function for the spanner is also found similarly, where QoI demand $\textbf{q}=(D,T)$ relates the requested diversity $D$ to the number of images, again also defining the traffic requirement when timeliness requirements are considered.
 
 %\subsection{Illustrative Example}  % should this be a separate subsection??
 
@@ -127,12 +127,12 @@ assume the overhead due to MAC control messages is negligible.
 We can then substitute these expressions  into Equation (\ref{eq:utility}) and note that the maximum
 scalability occurs when \emph{R(m) = 0} for the node $m$ at which $R(m)$ reaches zero first, also called the \emph{bottleneck node}.  Assuming this node $m$ and dropping the per-node notation on $R$ and $W$, resulting in the maximum node capacity of
 $
-W = (1+7)\cdot \frac{2}{3}\cdot  \sqrt{N}\cdot  f^{-1}(q),  %  What is f^{-1}????
+W = (1+7)\cdot \frac{2}{3}\cdot  \sqrt{N}\cdot  QRF(q),  
 $
 which simplifies to a maximum network size of
 
 \begin{equation}
-N = [\frac{3\cdot W}{16\cdot f^{-1}(q)}]^2.
+N = [\frac{3\cdot W}{16\cdot QRF(q)}]^2.
 \end{equation}
 
 We note that given the coarseness of the model and the abstraction of many
