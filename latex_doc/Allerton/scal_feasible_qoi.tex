@@ -10,7 +10,7 @@ These two facts are important, because when $N_{max} < k_{req}$, then it is not 
 \vspace{-4mm}
 \begin{figure}[ht]
 \centering
-\includegraphics[scale=0.31, clip=true, trim=10mm 65mm 20mm 77mm]{figures/scal_feas_qoi/scal_feas_qoi_region_3d_plot_3.pdf}
+\includegraphics[scale=0.31, clip=true, trim=10mm 65mm 20mm 77mm]{scal_feas_qoi_region_3d_plot_3.pdf}
 \vspace{-5mm}
 \caption{The blue plane represents maximum scalability, and the yellow plane represents minimum required images.  Therefore, all {Sum Similarity, Timeliness} pairs to the right of the red line are within the scalably feasible QoI region.}
  \label{fig:scal_feasible_region}
@@ -21,6 +21,4 @@ Figure \ref{fig:scal_feasible_region} provides a visual representation of this r
 %\footnote{Details of applying the framework are omitted due to space constraints.}.  
 Here, $N_{max}$, calculated for $\mathbf{q}$ pairs from $\{2.5,1\}$ to $\{13.0, 50\}$, is shown in the graph by the blue surface.  On the same graph is the number of images required, $k_{req}$, for each Sum Similarity requirement, shown with the yellow surface on the graph.  The intersection of these two surfaces, displayed with a red line, provides the edge of the scalably feasible QoI region.  In this example, all sum QoI pairs to the right of this line, i.e. the region where $N_{max} > k_{req}$, are scalably feasible.  
 
-In general, regardless of how many images a node has, it is possible to analyze the trade-off between different QoI attributes for a fixed value of maximum network size, $N_{max}$.  Specifically, by fixing $N$ in Table \ref{table:scal_eqs},
-%(\ref{eq:clique_gen})-(\ref{eq:grid_gen}), 
-one can obtain $T$ and $k_{req}$ (and, hence, $C$) resulting in the set of supportable $\{C,T\}$ pairs defining a feasible region for QoI. This region can be visualized by intersecting the blue scalability curve with a flat surface fixed at $N_{max}$ instead of the yellow surface in Figure \ref{fig:scal_feasible_region}.  The scenario given in this section goes one step further and also takes into account  the network size actually required to generate/support a given QoI requirement (using the non-flat yellow surface derived from experimental results in Figure \ref{fig:scal_feasible_region}).
+In general, regardless of how many images a node has, it is possible to analyze the trade-off between different QoI attributes for a fixed value of maximum network size, $N_{max}$.  Specifically, by fixing $N$ in (\ref{eq:clique_gen})-(\ref{eq:grid_gen}), one can obtain $T$ and $k_{req}$ (and, hence, $C$) resulting in the set of supportable $\{C,T\}$ pairs defining a feasible region for QoI. This region can be visualized by intersecting the blue scalability curve with a flat surface fixed at $N_{max}$ instead of the yellow surface in Figure \ref{fig:scal_feasible_region}.  The scenario given in this section goes one step further and also takes into account  the network size actually required to generate/support a given QoI requirement (using the non-flat yellow surface derived from experimental results in Figure \ref{fig:scal_feasible_region}).

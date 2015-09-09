@@ -59,13 +59,13 @@
 
 \section{Proof of Traffic Factor for Grid Network}
 \label{sec:grid_tf_proof}
-We outline a simple proof for determining the traffic factor of the center node in a grid of $N$ nodes using ``Row-First, Column-Second" routing.  We give the proof for when $\sqrt{N}$ is odd, but the logic follows similarly for even values.
-Assume each node is the source of exactly one flow and that the destination is uniformly chosen from all other $N-1$ nodes.  Node $i$, then, has a $\frac{1}{N-2}$ chance of choosing each non-center node.  
-%For each source node, we can determine the number of destinations that route through the center.  We separate nodes into two categories for this counting.
+We outline a simple proof for determining the traffic factor of the center node in a grid topology of $N$ nodes using ``Row-First, Column-Second" routing, not including traffic originating or ending at the center node.  For simplicity, we only go through the proof for when $\sqrt{N}$ is odd.  The construction for even values of $\sqrt{N}$ follows from the same logic.
+
+Assume that each node is the source of exactly one flow at all times and that the destination of this flow is uniformly chosen from all other $N-1$ nodes in the network.  Node $i$, then, has a $\frac{1}{N-2}$ chance of choosing each other node that is not the center of the grid.  For each source node, we can determine the number of destinations that route through the center.  We separate nodes into two categories for this counting.
 
 \begin{figure}
 \begin{centering}
-    \includegraphics[scale=0.33]{figures/TF_proof_fig_color.pdf}
+    \includegraphics[scale=0.33]{TF_proof_fig_color.pdf}
     \vspace{-4mm}
     \caption{Sources and destinations used in proving TF for grid networks}
     \label{fig:TF_proof_fig}
@@ -73,24 +73,20 @@ Assume each node is the source of exactly one flow and that the destination is u
 \end{centering}
 \end{figure}
 
-First, we consider the nodes circled in set $A$ in Figure \ref{fig:TF_proof_fig}.  
-%Through manual inspection, one can deduce that the only destination nodes in the figure that result in a path that is relayed by the center node are the two bottom nodes in the center column in the figure, marked with blue.  
-The destinations that are relayed through the center are marked in blue in the figure.
-The probability of a node in set $A$ choosing one of these destinations is $P_{A} = \frac{\frac{\sqrt{N}-1}{2}}{N-2}$.
-%Now, we can count the total number of nodes for which this probability holds.  From the figure, we can quantify the number of circled nodes, but we must also consider the reverse, i.e. imagine the figure rotated vertically, so 
-The total number of nodes falling into set $A$, including the mirror of those circled in the figure, is $N_A = \sqrt{N} \cdot (\sqrt{N}-1)$.
-Then, the contribution to the TF by nodes in set $A$ is simply the product of $P_A$ and $N_A$:
-%\begin{equation}
-	$E[TF_{A}] = \frac{\frac{\sqrt{N}-1}{2}}{N-2}  \cdot  \sqrt{N} \cdot (\sqrt{N}-1)$
-%\end{equation}
+The first set of nodes we consider are those circled in set $A$ in Figure \ref{fig:TF_proof_fig}.  Through manual inspection, one can deduce that the only destination nodes in the figure that result in a path that is relayed by the center node are the two bottom nodes in the center column in the figure, marked with blue.  We define the probability of a node in set $A$ choosing one of these destinations from all possible destinations as $P_{A} = \frac{\frac{\sqrt{N}-1}{2}}{N-2}$.
 
-%Next, we consider the nodes in the same row as the center node, which we call set $B$.  
-%Here, all destinations on the ``opposite" side of the center as well as those in the same column of the center require being routed through the center node when originating from any nodes in set $B$.  Just as above, we can relate the probability of choosing one of these destinations as 
-Similarly, for set $B$: $P_{B} = \frac{\frac{\sqrt{N}+1}{2} \cdot \sqrt{N} - 1}{N-2}$
- and $N_{B} = \sqrt{N}$, so the expected contribution to TF from set $B$ is
-%\begin{equation}
-	$E[TF_{B}] = \frac{\frac{\sqrt{N}+1}{2} \cdot \sqrt{N} - 1}{N-2} \cdot 2 \cdot (\frac{\sqrt{N}-1}{2})$.
-%\end{equation}
+Now, we can count the total number of nodes for which this probability holds.  From the figure, we can quantify the number of circled nodes, but we must also consider the reverse, i.e. imagine the figure rotated vertically, so the total number of nodes falling into set $A$ is actually $N_A = \sqrt{N} \cdot (\sqrt{N}-1)$.
+Then, the expected number of paths being forwarded by the center node at any given time by nodes in set $A$ is simply the product of $P_A$ and $N_A$:
+\begin{equation}
+	E[TF_{A}] = \frac{\frac{\sqrt{N}-1}{2}}{N-2}  \cdot  \sqrt{N} \cdot (\sqrt{N}-1)
+\end{equation}
+
+Next, we consider the nodes not in set $A$.  These nodes are in the same row as the center node, and we will call them set $B$, also shown in Figure \ref{fig:TF_proof_fig}.  Here, all destinations on the ``opposite" side of the center as well as those in the same column of the center require being routed through the center node when originating from any nodes in set $B$.  Just as above, we can relate the probability of choosing one of these destinations as $P_{B} = \frac{\frac{\sqrt{N}+1}{2} \cdot \sqrt{N} - 1}{N-2}$.
+
+Using the number of nodes in set $B$, $N_{B} = \sqrt{N}$, the resulting expected traffic factor for the center node attributed by nodes in set $B$ is
+\begin{equation}
+	E[TF_{B}] = \frac{\frac{\sqrt{N}+1}{2} \cdot \sqrt{N} - 1}{N-2} \cdot 2 \cdot (\frac{\sqrt{N}-1}{2})
+\end{equation}
 
 Since sets $A$ and $B$ account for all non-center nodes in the network, the overall expected traffic factor is just the sum of $E[TF_A]$ and $E[TF_B]$, which simplifies to
 \begin{equation}

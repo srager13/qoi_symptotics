@@ -1,0 +1,13 @@
+
+\section{Related Work}
+\label{sec:related_work}
+
+The capacity and scalability model derived in this work is inspired by the symptotic scalability framework outlined in \cite{symptotics_tech_report}, which has been previously applied to content-agnostic static networks \cite{symptotics_framework_scalability} and mobile networks \cite{scal_analysis_mobility}.  Other works characterize the capacity of wireless networks, like \cite{li_capacity, gupta2000capacity}, but all do so differently by considering how networks scale asymptotically or by analyzing specific network instances instead of developing a general model.  Experimental techniques, like Response Surface Methodology \cite{khuri2010response}, for example, may be applied to solve the problem we do, but these require complex test beds instead of a compact mathematical framework.
+
+A large number of works provide definitions for Quality of Information and frameworks utilizing it.  We will address only the most relevant ones here.  Primarily, QoI has been used in scheduling and has been considered from a number of various angles, including control choices of data selection \cite{dcoss_max_cov}, routing \cite{quality_aware_routing_tan}, and scheduling/rate control \cite{toward_qoi_rate_control,explor_vs_exploit}.
+
+The work in \cite{qoi_aware_mobile_apps} evaluates the impact of varying QoI requirements on usage of network resources, which is certainly related to this paper.  Our focus is on a broader scale than this work, though, by modeling an entire network instead of a single node as the authors do in \cite{qoi_aware_mobile_apps}.
+
+Additionally, \cite{oicc_journal} outlines a framework called Operational Information Content Capacity, which describes the obtainable region of QoI, a notion similar to the \emph{scalably feasible QoI region} developed here.  These approaches use a general network model, though, and do not provide any method for determining the possible size of the network or impact of various network design choices like medium access protocols.   % might need to look at these two papers again
+
+In Section \ref{sec:qoi_model}, we use similarity-based image collection as an example of an application that is best evaluated using QoI.  This application has previously been considered in \cite{photonet} and \cite{mediascope}. Our scope is greater than that of \cite{photonet}, which does not consider attributes of timeliness, nor the consideration of transmission rates and network topology.  \cite{mediascope} considers a smartphone application where different queries called Top-K, Spanner, and K-means Clustering are defined.  We use these same similarity-based image selection algorithms, but we provide new methods of quantifying QoI from them.

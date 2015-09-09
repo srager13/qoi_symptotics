@@ -1,51 +1,43 @@
-
 \section{Validation}
 \label{sec:validation}
 
+\begin{figure}[]
+\centering
+       \subfigure[Line Network, $I_S = 3 MB$]{
+        \includegraphics[scale=0.20, clip=true, trim=15mm 65mm 20mm 65mm]{figures/scal_sim_results/color_2d/line_uni_2d_qoi_vs_non_color_1.pdf}
+        \label{fig:scal_vs_qoi_line}
+        }
+    \subfigure[Grid Network, $I_S = 6 MB$]{
+        \includegraphics[scale=0.20, clip=true, trim=15mm 65mm 20mm 65mm]{figures/scal_sim_results/color_2d/grid_uni_2d_qoi_vs_non_color_3.pdf}
+        \label{fig:scal_vs_qoi_grid}
+        }
+   \caption{Empirical results match analytical results closely for all performed tests.  Comparison to non-QoI-Aware models also show value of framework.}
+   \label{fig:scal_vs_qoi}
+%\vspace{-6mm}
+\end{figure}
 
-To show how effective estimates using this framework can be, we simulated the network topologies and traffic described above in Section \ref{sec:example_apply_fw} in the ns3 network simulator, comparing empirical results to those generated analytically.  We present a subset of these comparisons to provide evidence of the effectiveness of the methodology.  All results generated, however, exhibit very similar trends of proximity between empirical and the analytical values.
+To show how effective estimates using this framework can be, we simulated the network topologies and traffic described above in Section \ref{sec:example_apply_fw} in the ns3 network simulator, comparing empirical results to those generated analytically.  To show the role of considering QoI, we also include \emph{non-QoI-Aware} scalability estimates that arise from using the scalability framework in \cite{symptotics_framework_scalability}.  We only show a subset of results in Figure \ref{fig:scal_vs_qoi} to provide evidence of the effectiveness of the methodology.  All results generated, however, exhibit very similar trends of proximity between empirical and the analytical values.
 
-We use a channel rate of $W= 2 Mbps$, packet sizes of $P_s = 1500$ bytes, and image sizes of 9, 12, and 48 Mbytes.  As above, the correlation between Sum Similarity and $k_{req}$ is taken from the actual observed relation in Figure \ref{fig:topkSumSim}.  All values of parameters ($SS$, $T$, $I_S$, etc.) were chosen to test a variety of network sizes and QoI requirements while remaining within realistic network sizes, both with respect to real-world deployments and simulations with feasible run-times.
+%We use a channel rate of $W= 2 Mbps$, packet sizes of $P_s = 1500$ bytes, and image sizes of 9, 12, and 48 Mbytes.  As above, the correlation between Sum Similarity and $k_{req}$ is taken from the actual observed relation in Figure \ref{fig:topkSumSim}.  All values of parameters ($SS$, $T$, $I_S$, etc.) were chosen to test a variety of network sizes and QoI requirements while remaining within realistic network sizes, both with respect to real-world deployments and simulations with feasible run-times.
 
-Figure \ref{fig:scal_vs_qoi} shows the maximum scalability projected by solving inequalities (\ref{eq:clique_gen})-(\ref{eq:grid_gen}) and the maximum scalability observed in our experiments.  In our simulations, we defined \emph{scalable} as a network in which all of the requested queries were entirely fulfilled within the specified timeliness requirement.  Small differences arise due to average values being used for $CF$, $TF$, $DF$, and $PL$, but, as the graphs show, in all of these scenarios, our network size estimates are very close to those realized in practical simulations.
-
-%\begin{figure}[htbp]
-%    \centering
-%    \begin{subfigure}[b]{0.3\textwidth}
-%        \includegraphics[width=\textwidth]{../Images/GloveOfDoom/RFIDTag_Testing_Side_s}
-%        \caption{Testing of the X-axis.}
-%        \label{rfidtest_xaxis}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.3\textwidth}
-%        \includegraphics[width=\textwidth]{../Images/GloveOfDoom/RFIDTag_Testing_Vertical_s}
-%        \caption{Testing of the Y-axis.}
-%        \label{rfidtest_yaxis}
-%    \end{subfigure}
-%    \begin{subfigure}[b]{0.3\textwidth}
-%        \includegraphics[width=\textwidth]{../Images/GloveOfDoom/RFIDTag_Testing_Other_s}
-%        \caption{Testing of the Z-axis.}
-%        \label{rfidtest_zaxis}
-%    \end{subfigure}
-%    \caption[RFID tag read-range testing]{RFID tag read-range testing setup. In all tests, the finger moves towards along an axis towards the tag.}
-%    \label{rfidtag_testing}
-%\end{figure}
+%Figure \ref{fig:scal_vs_qoi} shows the maximum scalability projected by solving inequalities (\ref{eq:clique_gen})-(\ref{eq:grid_gen}) and the maximum scalability observed in our experiments.  In our simulations, we defined \emph{scalable} as a network in which all of the requested queries were entirely fulfilled within the specified timeliness requirement.  Small differences arise due to average values being used for $CF$, $TF$, $DF$, and $PL$, but, as the graphs show, in all of these scenarios, our network size estimates are very close to those realized in practical simulations.
 
 
-%Figure \ref{fig:qoi_vs_num_nodes_grid} shows the same comparison, except displaying the maximum sum similarity values achievable for a fixed network size and several different timeliness constraints.  Many of the experimental results align exactly with the analysis.  Of those that differ from the projected achievable values, the gap between the points represents the smallest possible error, since the sum similarity is given as a set of discrete points based on the value of $k_{req}$.  In other words, the estimated sum similarity values are virtually all exactly on or exhibit the smallest possible error value.
-%
-%\begin{figure}
+%\begin{figure*}[]
 %\centering
-%\includegraphics[scale=0.45, clip=true, trim=15mm 65mm 20mm 65mm]{figures/scal_sim_results/grid_max_ss_24_IS.pdf}
-%    \label{fig:qoi_vs_num_nodes_grid}
-%   \caption{Grid Network: Maximum Achievable QoI for Given Network Size}
-%\end{figure}
-
-
-
-
-
-
-
-
-
-
+%    \subfigure[Clique Network, $I_S = 9 MB$]{
+%        \includegraphics[scale=0.29, clip=true, trim=15mm 65mm 20mm 65mm]{figures/scal_sim_results/clique_uni_2d.pdf}
+%        \label{fig:scal_vs_qoi_clique}
+%        }
+%    \subfigure[Line Network, $I_S = 12 MB$]{
+%        \includegraphics[scale=0.29, clip=true, trim=15mm 65mm 20mm 65mm]{figures/scal_sim_results/line_uni_2d_mhop_2.pdf}
+%        \label{fig:scal_vs_qoi_line}
+%        }
+%    \subfigure[Grid Network, $I_S = 48 MB$]{
+%        \includegraphics[scale=0.29, clip=true, trim=15mm 65mm 20mm 65mm]{figures/scal_sim_results/grid_uni_2d_mhop_2.pdf}
+%        \label{fig:scal_vs_qoi_grid}
+%        }
+%   \caption{Empirical results match analytical results closely for all performed tests.  Results for each topology and a variety of sum similarity (SS) and timeliness requirements are provided.}
+%   \label{fig:scal_vs_qoi}
+%\vspace{-6mm}
+%\end{figure*}
